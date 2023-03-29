@@ -11,16 +11,16 @@ import javafx.stage.Stage;
 public class WindowSize extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
 
         Parent root = new StackPane();
         Scene scene = new Scene(root, 600, 600);
-        Label lb1_size = new Label();
-        ((StackPane) root).getChildren().add(lb1_size);
-        primaryStage.setTitle("Window Size");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        lb1_size.textProperty().bind(Bindings.format("Window size: %.0fx%.0f", primaryStage.widthProperty(), primaryStage.heightProperty()));
+        Label winsize_show = new Label();
+        ((StackPane) root).getChildren().add(winsize_show);
+        stage.setTitle("Window Size");
+        stage.setScene(scene);
+        stage.show();
+        winsize_show .textProperty().bind(Bindings.format("Window size: %.0fx%.0f", stage.widthProperty(),stage.heightProperty()));
     }
 
     public static void main(String[] args) {
