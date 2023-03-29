@@ -1,0 +1,29 @@
+package com.example.newdemo;
+
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class WindowSize extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        Parent root = new StackPane();
+        Scene scene = new Scene(root, 600, 600);
+        Label lb1_size = new Label();
+        ((StackPane) root).getChildren().add(lb1_size);
+        primaryStage.setTitle("Window Size");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        lb1_size.textProperty().bind(Bindings.format("Window size: %.0fx%.0f", primaryStage.widthProperty(), primaryStage.heightProperty()));
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
